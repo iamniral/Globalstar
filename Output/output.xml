@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.4.1 (Python 3.13.7 on win32)" generated="2026-03-23T15:14:41.684095" rpa="false" schemaversion="5">
+<suite id="s1" name="Ble Test" source="C:\Users\Niral.Shah\PycharmProjects\BLE\Tests\ble_test.robot">
+<test id="s1-t1" name="Verify Nordic Device set Initialization" line="8">
+<kw name="Connect To Nordic Device" owner="nordic_ble_keywords" type="SETUP">
+<msg time="2026-03-23T15:14:41.850094" level="TRACE">Arguments: [  ]</msg>
+<kw name="Delete All Ports" owner="SerialLibrary">
+<msg time="2026-03-23T15:14:41.850972" level="TRACE">Arguments: [  ]</msg>
+<msg time="2026-03-23T15:14:41.851108" level="TRACE">Return: None</msg>
+<doc>Deletes all ports maintained in the library instance.</doc>
+<status status="PASS" start="2026-03-23T15:14:41.850829" elapsed="0.000380"/>
+</kw>
+<kw name="Add Port" owner="SerialLibrary">
+<msg time="2026-03-23T15:14:41.851724" level="TRACE">Arguments: [ 'COM10' | baudrate='115200' | timeout='2' ]</msg>
+<msg time="2026-03-23T15:14:41.858711" level="TRACE">Return: Serial&lt;id=0x1cc403fd900, open=True&gt;(port='COM10', baudrate=115200, bytesize=8, parity='N', stopbits=1, timeout=2.0, xonxoff=False, rtscts=False, dsrdtr=False)</msg>
+<arg>${PORT}</arg>
+<arg>baudrate=${BAUD}</arg>
+<arg>timeout=2</arg>
+<doc>Adds new port with specified locator.</doc>
+<status status="PASS" start="2026-03-23T15:14:41.851413" elapsed="0.007514"/>
+</kw>
+<kw name="Open Port" owner="SerialLibrary">
+<msg time="2026-03-23T15:14:41.859505" level="TRACE">Arguments: [ 'COM10' ]</msg>
+<msg time="2026-03-23T15:14:41.859650" level="TRACE">Return: None</msg>
+<arg>${PORT}</arg>
+<doc>Opens specified port.</doc>
+<status status="PASS" start="2026-03-23T15:14:41.859202" elapsed="0.000519"/>
+</kw>
+<kw name="Reset Input Buffer" owner="SerialLibrary">
+<msg time="2026-03-23T15:14:41.860254" level="TRACE">Arguments: [ 'COM10' ]</msg>
+<msg time="2026-03-23T15:14:41.860476" level="TRACE">Return: None</msg>
+<arg>${PORT}</arg>
+<doc>Clears input buffer.</doc>
+<status status="PASS" start="2026-03-23T15:14:41.859958" elapsed="0.000587"/>
+</kw>
+<msg time="2026-03-23T15:14:41.860617" level="TRACE">Return: None</msg>
+<status status="PASS" start="2026-03-23T15:14:41.849739" elapsed="0.010909"/>
+</kw>
+<kw name="Send AT Command" owner="nordic_ble_keywords">
+<msg time="2026-03-23T15:14:41.861392" level="TRACE">Arguments: [ ${command}='AT+SOS=1' ]</msg>
+<kw name="Write Data" owner="SerialLibrary">
+<msg time="2026-03-23T15:14:41.861650" level="TRACE">Arguments: [ 'AT+SOS=1\r\n' | encoding='utf-8' ]</msg>
+<msg time="2026-03-23T15:14:41.862715" level="TRACE">Return: None</msg>
+<arg>${command}${TERMINATOR}</arg>
+<arg>encoding=utf-8</arg>
+<doc>Writes data into the port.</doc>
+<status status="PASS" start="2026-03-23T15:14:41.861511" elapsed="0.001290"/>
+</kw>
+<kw name="Read Until" owner="SerialLibrary">
+<msg time="2026-03-23T15:14:41.863087" level="TRACE">Arguments: [ '\r\n' ]</msg>
+<msg time="2026-03-23T15:14:41.894773" level="TRACE">Return: '2B 45 52 52 4F 52 3A 20 31 34 0D 0A'</msg>
+<msg time="2026-03-23T15:14:41.895125" level="INFO">${response} = 2B 45 52 52 4F 52 3A 20 31 34 0D 0A</msg>
+<var>${response}</var>
+<arg>${TERMINATOR}</arg>
+<doc>Read until a termination sequence is found, size exceeded or timeout.</doc>
+<status status="PASS" start="2026-03-23T15:14:41.862945" elapsed="0.032235"/>
+</kw>
+<return>
+<value>${response}</value>
+<status status="PASS" start="2026-03-23T15:14:41.895329" elapsed="0.000151"/>
+</return>
+<msg time="2026-03-23T15:14:41.895709" level="TRACE">Return: '2B 45 52 52 4F 52 3A 20 31 34 0D 0A'</msg>
+<msg time="2026-03-23T15:14:41.895834" level="INFO">${response} = 2B 45 52 52 4F 52 3A 20 31 34 0D 0A</msg>
+<var>${response}</var>
+<arg>AT+SOS=1</arg>
+<status status="PASS" start="2026-03-23T15:14:41.861185" elapsed="0.034687"/>
+</kw>
+<doc>Checks if the device responds to a basic AT ping.</doc>
+<status status="PASS" start="2026-03-23T15:14:41.847684" elapsed="0.049030"/>
+</test>
+<test id="s1-t2" name="Verify Nordic Device Initialization" line="13">
+<kw name="Connect To Nordic Device" owner="nordic_ble_keywords" type="SETUP">
+<msg time="2026-03-23T15:14:41.900351" level="TRACE">Arguments: [  ]</msg>
+<kw name="Delete All Ports" owner="SerialLibrary">
+<msg time="2026-03-23T15:14:41.900637" level="TRACE">Arguments: [  ]</msg>
+<msg time="2026-03-23T15:14:41.902798" level="TRACE">Return: None</msg>
+<doc>Deletes all ports maintained in the library instance.</doc>
+<status status="PASS" start="2026-03-23T15:14:41.900554" elapsed="0.002367"/>
+</kw>
+<kw name="Add Port" owner="SerialLibrary">
+<msg time="2026-03-23T15:14:41.903449" level="TRACE">Arguments: [ 'COM10' | baudrate='115200' | timeout='2' ]</msg>
+<msg time="2026-03-23T15:14:41.909957" level="TRACE">Return: Serial&lt;id=0x1cc403fe7d0, open=True&gt;(port='COM10', baudrate=115200, bytesize=8, parity='N', stopbits=1, timeout=2.0, xonxoff=False, rtscts=False, dsrdtr=False)</msg>
+<arg>${PORT}</arg>
+<arg>baudrate=${BAUD}</arg>
+<arg>timeout=2</arg>
+<doc>Adds new port with specified locator.</doc>
+<status status="PASS" start="2026-03-23T15:14:41.903161" elapsed="0.007009"/>
+</kw>
+<kw name="Open Port" owner="SerialLibrary">
+<msg time="2026-03-23T15:14:41.911503" level="TRACE">Arguments: [ 'COM10' ]</msg>
+<msg time="2026-03-23T15:14:41.911749" level="TRACE">Return: None</msg>
+<arg>${PORT}</arg>
+<doc>Opens specified port.</doc>
+<status status="PASS" start="2026-03-23T15:14:41.910793" elapsed="0.001059"/>
+</kw>
+<kw name="Reset Input Buffer" owner="SerialLibrary">
+<msg time="2026-03-23T15:14:41.912466" level="TRACE">Arguments: [ 'COM10' ]</msg>
+<msg time="2026-03-23T15:14:41.912750" level="TRACE">Return: None</msg>
+<arg>${PORT}</arg>
+<doc>Clears input buffer.</doc>
+<status status="PASS" start="2026-03-23T15:14:41.912169" elapsed="0.000678"/>
+</kw>
+<msg time="2026-03-23T15:14:41.912993" level="TRACE">Return: None</msg>
+<status status="PASS" start="2026-03-23T15:14:41.899410" elapsed="0.013664"/>
+</kw>
+<kw name="Send AT Command" owner="nordic_ble_keywords">
+<msg time="2026-03-23T15:14:41.914339" level="TRACE">Arguments: [ ${command}='AT+SOS?' ]</msg>
+<kw name="Write Data" owner="SerialLibrary">
+<msg time="2026-03-23T15:14:41.914853" level="TRACE">Arguments: [ 'AT+SOS?\r\n' | encoding='utf-8' ]</msg>
+<msg time="2026-03-23T15:14:41.915786" level="TRACE">Return: None</msg>
+<arg>${command}${TERMINATOR}</arg>
+<arg>encoding=utf-8</arg>
+<doc>Writes data into the port.</doc>
+<status status="PASS" start="2026-03-23T15:14:41.914578" elapsed="0.001375"/>
+</kw>
+<kw name="Read Until" owner="SerialLibrary">
+<msg time="2026-03-23T15:14:41.916728" level="TRACE">Arguments: [ '\r\n' ]</msg>
+<msg time="2026-03-23T15:14:41.944276" level="TRACE">Return: '2B 53 4F 53 3A 20 30 0D 0A 4F 4B 0D 0A'</msg>
+<msg time="2026-03-23T15:14:41.944685" level="INFO">${response} = 2B 53 4F 53 3A 20 30 0D 0A 4F 4B 0D 0A</msg>
+<var>${response}</var>
+<arg>${TERMINATOR}</arg>
+<doc>Read until a termination sequence is found, size exceeded or timeout.</doc>
+<status status="PASS" start="2026-03-23T15:14:41.916353" elapsed="0.028391"/>
+</kw>
+<return>
+<value>${response}</value>
+<status status="PASS" start="2026-03-23T15:14:41.944907" elapsed="0.000114"/>
+</return>
+<msg time="2026-03-23T15:14:41.945230" level="TRACE">Return: '2B 53 4F 53 3A 20 30 0D 0A 4F 4B 0D 0A'</msg>
+<msg time="2026-03-23T15:14:41.945367" level="INFO">${response} = 2B 53 4F 53 3A 20 30 0D 0A 4F 4B 0D 0A</msg>
+<var>${response}</var>
+<arg>AT+SOS?</arg>
+<status status="PASS" start="2026-03-23T15:14:41.913928" elapsed="0.031516"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<msg time="2026-03-23T15:14:41.947272" level="TRACE">Arguments: [ '2B 53 4F 53 3A 20 30 0D 0A 4F 4B 0D 0A' | '0' ]</msg>
+<msg time="2026-03-23T15:14:41.947505" level="TRACE">Return: None</msg>
+<arg>${response}</arg>
+<arg>0</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" start="2026-03-23T15:14:41.946226" elapsed="0.001355"/>
+</kw>
+<doc>Checks if the device responds to a basic AT ping.</doc>
+<status status="PASS" start="2026-03-23T15:14:41.898344" elapsed="0.050002"/>
+</test>
+<status status="PASS" start="2026-03-23T15:14:41.688340" elapsed="0.263603"/>
+</suite>
+<statistics>
+<total>
+<stat pass="2" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="Ble Test" id="s1" pass="2" fail="0" skip="0">Ble Test</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
