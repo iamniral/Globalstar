@@ -23,3 +23,6 @@ Verify Nordic Device Initialization
 #    # Optional: Verify by reading it back
 #    ${name_check} =  Send AT Command    AT+NAME?
 #    Should Contain   ${name_check}    Robot_BLE
+
+
+# New branch
