@@ -1,396 +1,392 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.4.1 (Python 3.13.7 on win32)" generated="2026-03-24T17:39:09.468463" rpa="false" schemaversion="5">
-<suite id="s1" name="Ble Test" source="C:\Users\Niral.Shah\PycharmProjects\BLE\Tests\ble_test.robot">
-<test id="s1-t1" name="Write SOS command" line="10">
+<robot generator="Robot 7.4.1 (Python 3.13.7 on win32)" generated="2026-03-25T10:17:14.357109" rpa="false" schemaversion="5">
+<suite id="s1" name="AT SOS" source="C:\Users\Niral.Shah\PycharmProjects\BLE\Tests\AT_SOS.robot">
+<test id="s1-t1" name="Write SOS command" line="8">
 <kw name="Connect To Nordic Device" owner="nordic_ble_keywords" type="SETUP">
-<msg time="2026-03-24T17:39:09.662347" level="TRACE">Arguments: [  ]</msg>
+<msg time="2026-03-25T10:17:14.451162" level="TRACE">Arguments: [  ]</msg>
 <kw name="Delete All Ports" owner="SerialLibrary">
-<msg time="2026-03-24T17:39:09.663247" level="TRACE">Arguments: [  ]</msg>
-<msg time="2026-03-24T17:39:09.663393" level="TRACE">Return: None</msg>
+<msg time="2026-03-25T10:17:14.451493" level="TRACE">Arguments: [  ]</msg>
+<msg time="2026-03-25T10:17:14.451546" level="TRACE">Return: None</msg>
 <doc>Deletes all ports maintained in the library instance.</doc>
-<status status="PASS" start="2026-03-24T17:39:09.663134" elapsed="0.000353"/>
+<status status="PASS" start="2026-03-25T10:17:14.451451" elapsed="0.000134"/>
 </kw>
 <kw name="Add Port" owner="SerialLibrary">
-<msg time="2026-03-24T17:39:09.664104" level="TRACE">Arguments: [ 'COM10' | baudrate='115200' | timeout='2' ]</msg>
-<msg time="2026-03-24T17:39:09.672347" level="TRACE">Return: Serial&lt;id=0x229a8c13760, open=True&gt;(port='COM10', baudrate=115200, bytesize=8, parity='N', stopbits=1, timeout=2.0, xonxoff=False, rtscts=False, dsrdtr=False)</msg>
+<msg time="2026-03-25T10:17:14.451778" level="TRACE">Arguments: [ 'COM10' | baudrate='115200' | timeout='2' ]</msg>
+<msg time="2026-03-25T10:17:14.455923" level="TRACE">Return: Serial&lt;id=0x19bea273850, open=True&gt;(port='COM10', baudrate=115200, bytesize=8, parity='N', stopbits=1, timeout=2.0, xonxoff=False, rtscts=False, dsrdtr=False)</msg>
 <arg>${PORT}</arg>
 <arg>baudrate=${BAUD}</arg>
 <arg>timeout=2</arg>
 <doc>Adds new port with specified locator.</doc>
-<status status="PASS" start="2026-03-24T17:39:09.663735" elapsed="0.008965"/>
+<status status="PASS" start="2026-03-25T10:17:14.451660" elapsed="0.004343"/>
 </kw>
 <kw name="Open Port" owner="SerialLibrary">
-<msg time="2026-03-24T17:39:09.673212" level="TRACE">Arguments: [ 'COM10' ]</msg>
-<msg time="2026-03-24T17:39:09.673321" level="TRACE">Return: None</msg>
+<msg time="2026-03-25T10:17:14.456202" level="TRACE">Arguments: [ 'COM10' ]</msg>
+<msg time="2026-03-25T10:17:14.456240" level="TRACE">Return: None</msg>
 <arg>${PORT}</arg>
 <doc>Opens specified port.</doc>
-<status status="PASS" start="2026-03-24T17:39:09.672948" elapsed="0.000409"/>
+<status status="PASS" start="2026-03-25T10:17:14.456105" elapsed="0.000153"/>
 </kw>
 <kw name="Reset Input Buffer" owner="SerialLibrary">
-<msg time="2026-03-24T17:39:09.673677" level="TRACE">Arguments: [ 'COM10' ]</msg>
-<msg time="2026-03-24T17:39:09.673926" level="TRACE">Return: None</msg>
+<msg time="2026-03-25T10:17:14.456370" level="TRACE">Arguments: [ 'COM10' ]</msg>
+<msg time="2026-03-25T10:17:14.456424" level="TRACE">Return: None</msg>
 <arg>${PORT}</arg>
 <doc>Clears input buffer.</doc>
-<status status="PASS" start="2026-03-24T17:39:09.673511" elapsed="0.000466"/>
+<status status="PASS" start="2026-03-25T10:17:14.456313" elapsed="0.000128"/>
 </kw>
 <kw name="Send AT Command" owner="nordic_ble_keywords">
-<msg time="2026-03-24T17:39:09.674518" level="TRACE">Arguments: [ ${command}="AT+MFGSECAUTH=1,asu'zfzU{Mj#O[4V" ]</msg>
+<msg time="2026-03-25T10:17:14.456686" level="TRACE">Arguments: [ ${command}="AT+MFGSECAUTH=1,asu'zfzU{Mj#O[4V" ]</msg>
 <kw name="Write Data" owner="SerialLibrary">
-<msg time="2026-03-24T17:39:09.674893" level="TRACE">Arguments: [ "AT+MFGSECAUTH=1,asu'zfzU{Mj#O[4V\r\n" | encoding='utf-8' ]</msg>
-<msg time="2026-03-24T17:39:09.675920" level="TRACE">Return: None</msg>
+<msg time="2026-03-25T10:17:14.456846" level="TRACE">Arguments: [ "AT+MFGSECAUTH=1,asu'zfzU{Mj#O[4V\r\n" | encoding='utf-8' ]</msg>
+<msg time="2026-03-25T10:17:14.457182" level="TRACE">Return: None</msg>
 <arg>${command}${TERMINATOR}</arg>
 <arg>encoding=utf-8</arg>
 <doc>Writes data into the port.</doc>
-<status status="PASS" start="2026-03-24T17:39:09.674681" elapsed="0.001305"/>
+<status status="PASS" start="2026-03-25T10:17:14.456763" elapsed="0.000445"/>
 </kw>
 <kw name="Read Until" owner="SerialLibrary">
-<msg time="2026-03-24T17:39:09.676270" level="TRACE">Arguments: [ '\r\n' ]</msg>
-<msg time="2026-03-24T17:39:09.703192" level="TRACE">Return: '4F 4B 0D 0A'</msg>
-<msg time="2026-03-24T17:39:09.703844" level="INFO">${hex_response} = 4F 4B 0D 0A</msg>
+<msg time="2026-03-25T10:17:14.457355" level="TRACE">Arguments: [ '\r\n' ]</msg>
+<msg time="2026-03-25T10:17:14.489175" level="TRACE">Return: '4F 4B 0D 0A'</msg>
+<msg time="2026-03-25T10:17:14.489371" level="INFO">${hex_response} = 4F 4B 0D 0A</msg>
 <var>${hex_response}</var>
 <arg>${TERMINATOR}</arg>
 <doc>Read until a termination sequence is found, size exceeded or timeout.</doc>
-<status status="PASS" start="2026-03-24T17:39:09.676138" elapsed="0.027827"/>
+<status status="PASS" start="2026-03-25T10:17:14.457269" elapsed="0.032123"/>
 </kw>
 <kw name="Remove String" owner="String">
-<msg time="2026-03-24T17:39:09.704598" level="TRACE">Arguments: [ '4F 4B 0D 0A' | ' ' ]</msg>
-<msg time="2026-03-24T17:39:09.704771" level="TRACE">Return: '4F4B0D0A'</msg>
-<msg time="2026-03-24T17:39:09.704901" level="INFO">${clean_hex} = 4F4B0D0A</msg>
+<msg time="2026-03-25T10:17:14.489710" level="TRACE">Arguments: [ '4F 4B 0D 0A' | ' ' ]</msg>
+<msg time="2026-03-25T10:17:14.489781" level="TRACE">Return: '4F4B0D0A'</msg>
+<msg time="2026-03-25T10:17:14.489836" level="INFO">${clean_hex} = 4F4B0D0A</msg>
 <var>${clean_hex}</var>
 <arg>${hex_response}</arg>
 <arg>${SPACE}</arg>
 <doc>Removes all ``removables`` from the given ``string``.</doc>
-<status status="PASS" start="2026-03-24T17:39:09.704247" elapsed="0.000693"/>
+<status status="PASS" start="2026-03-25T10:17:14.489547" elapsed="0.000304"/>
 </kw>
 <kw name="Evaluate" owner="BuiltIn">
-<msg time="2026-03-24T17:39:09.705754" level="TRACE">Arguments: [ "bytes.fromhex('4F4B0D0A')" ]</msg>
-<msg time="2026-03-24T17:39:09.706713" level="TRACE">Return: b'OK\r\n'</msg>
-<msg time="2026-03-24T17:39:09.706888" level="INFO">${bytes} = OK
+<msg time="2026-03-25T10:17:14.490186" level="TRACE">Arguments: [ "bytes.fromhex('4F4B0D0A')" ]</msg>
+<msg time="2026-03-25T10:17:14.490654" level="TRACE">Return: b'OK\r\n'</msg>
+<msg time="2026-03-25T10:17:14.490721" level="INFO">${bytes} = OK
 </msg>
 <var>${bytes}</var>
 <arg>bytes.fromhex('${clean_hex}')</arg>
 <doc>Evaluates the given expression in Python and returns the result.</doc>
-<status status="PASS" start="2026-03-24T17:39:09.705120" elapsed="0.001812"/>
+<status status="PASS" start="2026-03-25T10:17:14.489926" elapsed="0.000810"/>
 </kw>
 <kw name="Evaluate" owner="BuiltIn">
-<msg time="2026-03-24T17:39:09.707545" level="TRACE">Arguments: [ "$bytes.decode('utf-8')" ]</msg>
-<msg time="2026-03-24T17:39:09.708374" level="TRACE">Return: 'OK\r\n'</msg>
-<msg time="2026-03-24T17:39:09.708560" level="INFO">${response} = OK
+<msg time="2026-03-25T10:17:14.490991" level="TRACE">Arguments: [ "$bytes.decode('utf-8')" ]</msg>
+<msg time="2026-03-25T10:17:14.491382" level="TRACE">Return: 'OK\r\n'</msg>
+<msg time="2026-03-25T10:17:14.491429" level="INFO">${response} = OK
 </msg>
 <var>${response}</var>
 <arg>$bytes.decode('utf-8')</arg>
 <doc>Evaluates the given expression in Python and returns the result.</doc>
-<status status="PASS" start="2026-03-24T17:39:09.707141" elapsed="0.001465"/>
+<status status="PASS" start="2026-03-25T10:17:14.490821" elapsed="0.000624"/>
 </kw>
 <kw name="Log" owner="BuiltIn">
-<msg time="2026-03-24T17:39:09.709197" level="TRACE">Arguments: [ 'Decoded Response: OK\r\n' ]</msg>
-<msg time="2026-03-24T17:39:09.709332" level="INFO">Decoded Response: OK
+<msg time="2026-03-25T10:17:14.491689" level="TRACE">Arguments: [ 'Decoded Response: OK\r\n' ]</msg>
+<msg time="2026-03-25T10:17:14.491732" level="INFO">Decoded Response: OK
 </msg>
-<msg time="2026-03-24T17:39:09.709411" level="TRACE">Return: None</msg>
+<msg time="2026-03-25T10:17:14.491751" level="TRACE">Return: None</msg>
 <arg>Decoded Response: ${response}</arg>
 <doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2026-03-24T17:39:09.708818" elapsed="0.000648"/>
+<status status="PASS" start="2026-03-25T10:17:14.491512" elapsed="0.000256"/>
 </kw>
 <return>
 <value>${response}</value>
-<status status="PASS" start="2026-03-24T17:39:09.709554" elapsed="0.000089"/>
+<status status="PASS" start="2026-03-25T10:17:14.491801" elapsed="0.000043"/>
 </return>
-<msg time="2026-03-24T17:39:09.709821" level="TRACE">Return: 'OK\r\n'</msg>
+<msg time="2026-03-25T10:17:14.491922" level="TRACE">Return: 'OK\r\n'</msg>
 <arg>AT+MFGSECAUTH=1,asu'zfzU{Mj\#O[4V</arg>
-<status status="PASS" start="2026-03-24T17:39:09.674264" elapsed="0.035614"/>
+<status status="PASS" start="2026-03-25T10:17:14.456568" elapsed="0.035375"/>
 </kw>
-<msg time="2026-03-24T17:39:09.709957" level="TRACE">Return: None</msg>
-<status status="PASS" start="2026-03-24T17:39:09.662016" elapsed="0.047989"/>
+<msg time="2026-03-25T10:17:14.491972" level="TRACE">Return: None</msg>
+<status status="PASS" start="2026-03-25T10:17:14.451029" elapsed="0.040960"/>
 </kw>
 <kw name="Send AT Command" owner="nordic_ble_keywords">
-<msg time="2026-03-24T17:39:09.711128" level="TRACE">Arguments: [ ${command}='AT+SOS=2' ]</msg>
+<msg time="2026-03-25T10:17:14.492556" level="TRACE">Arguments: [ ${command}='AT+SOS=1' ]</msg>
 <kw name="Write Data" owner="SerialLibrary">
-<msg time="2026-03-24T17:39:09.711638" level="TRACE">Arguments: [ 'AT+SOS=2\r\n' | encoding='utf-8' ]</msg>
-<msg time="2026-03-24T17:39:09.712296" level="TRACE">Return: None</msg>
+<msg time="2026-03-25T10:17:14.492723" level="TRACE">Arguments: [ 'AT+SOS=1\r\n' | encoding='utf-8' ]</msg>
+<msg time="2026-03-25T10:17:14.493131" level="TRACE">Return: None</msg>
 <arg>${command}${TERMINATOR}</arg>
 <arg>encoding=utf-8</arg>
 <doc>Writes data into the port.</doc>
-<status status="PASS" start="2026-03-24T17:39:09.711353" elapsed="0.001012"/>
+<status status="PASS" start="2026-03-25T10:17:14.492637" elapsed="0.000517"/>
 </kw>
 <kw name="Read Until" owner="SerialLibrary">
-<msg time="2026-03-24T17:39:09.712656" level="TRACE">Arguments: [ '\r\n' ]</msg>
-<msg time="2026-03-24T17:39:09.783374" level="TRACE">Return: '4F 4B 0D 0A 2B 55 52 43 3A 20 22 53 4F 53 22 2C 31 36 2C 32 0D 0A 2B 55 52 43 3A 20 22 41 75 64 69 6F 22 2C 32 31 2C 31 2C 31 2C 31 30 34 37 2C 31 35 30 2C 36 35 35 33 35 2C 37 35 2C 38 38 30 2C 31 35 30 2C 30 2C 30 2C 30 2C 30 2C 30 2C 30 2C 30 2C 30 2C 30 2C 30 2C 30 2C 30 2C 30 2C 30 2C 30 2C 30 2C 30 2C 30 2C 30 2C 30 2C 30 2C 30 2C 30 2C 30 2C 30 2C 30 0D 0A 2B 55 52 43 3A 20 22 53 4F 53 22 2C 31 36 2C 37 0D 0A 2B 55 52 43 3A 20 22 41 75 64 69 6F 22 2C 32 31 2C 31 2C 31 2C 31 30 34 37 2C 31 30 30 2C 36 35 35 33 35 2C 35 30 2C 38 38 30 2C 31 30 30 2C 36 35 35 33 35 2C 35 30 2C 36 39 38 2C 32 30 30 2C 30 2C 30 2C 30 2C 30 2C 30 2C 30 2C 30 2C 30 2C 30 2C 30 2C 30 2C 30 2C 30 2C 30 2C 30 2C 30 2C 30 2C 30 2C 30 2C 30 2C 30 2C 30 0D 0A 2B 55 52 43 3A 20 22 4D 73 67 51 75 65 75 65 22 2C 32 2C 39 2C 32 35 35 0D 0A 2B 55 52 43 3A 20 22 53 4F 53 22 2C 31 36 2C 33 0D 0A 2B 55 52 43 3A 20 22 47 65 6E 65 72 61 6C 22 2C 31 34 2C 31 0D 0A'</msg>
-<msg time="2026-03-24T17:39:09.783772" level="INFO">${hex_response} = 4F 4B 0D 0A 2B 55 52 43 3A 20 22 53 4F 53 22 2C 31 36 2C 32 0D 0A 2B 55 52 43 3A 20 22 41 75 64 69 6F 22 2C 32 31 2C 31 2C 31 2C 31 30 34 37 2C 31 35 30 2C 36 35 35 33 35 2C 37 35 2C 38 38 30 2C 31 35...</msg>
+<msg time="2026-03-25T10:17:14.493288" level="TRACE">Arguments: [ '\r\n' ]</msg>
+<msg time="2026-03-25T10:17:14.553084" level="TRACE">Return: '4F 4B 0D 0A 2B 55 52 43 3A 20 22 53 4F 53 22 2C 31 36 2C 31 0D 0A 2B 55 52 43 3A 20 22 41 75 64 69 6F 22 2C 32 31 2C 31 2C 31 2C 31 30 34 37 2C 31 35 30 2C 36 35 35 33 35 2C 35 30 2C 31 30 34 37 2C 31 35 30 2C 36 35 35 33 35 2C 35 30 2C 31 30 34 37 2C 31 35 30 2C 36 35 35 33 35 2C 31 30 30 2C 31 35 36 38 2C 33 30 30 2C 30 2C 30 2C 30 2C 30 2C 30 2C 30 2C 30 2C 30 2C 30 2C 30 2C 30 2C 30 2C 30 2C 30 2C 30 2C 30 2C 30 2C 30 0D 0A 2B 55 52 43 3A 20 22 47 65 6E 65 72 61 6C 22 2C 31 34 2C 31 0D 0A'</msg>
+<msg time="2026-03-25T10:17:14.553392" level="INFO">${hex_response} = 4F 4B 0D 0A 2B 55 52 43 3A 20 22 53 4F 53 22 2C 31 36 2C 31 0D 0A 2B 55 52 43 3A 20 22 41 75 64 69 6F 22 2C 32 31 2C 31 2C 31 2C 31 30 34 37 2C 31 35 30 2C 36 35 35 33 35 2C 35 30 2C 31 30 34 37 2C 31...</msg>
 <var>${hex_response}</var>
 <arg>${TERMINATOR}</arg>
 <doc>Read until a termination sequence is found, size exceeded or timeout.</doc>
-<status status="PASS" start="2026-03-24T17:39:09.712525" elapsed="0.071315"/>
+<status status="PASS" start="2026-03-25T10:17:14.493231" elapsed="0.060367"/>
 </kw>
 <kw name="Remove String" owner="String">
-<msg time="2026-03-24T17:39:09.784712" level="TRACE">Arguments: [ '4F 4B 0D 0A 2B 55 52 43 3A 20 22 53 4F 53 22 2C 31 36 2C 32 0D 0A 2B 55 52 43 3A 20 22 41 75 64 69 6F 22 2C 32 31 2C 31 2C 31 2C 31 30 34 37 2C 31 35 30 2C 36 35 35 33 35 2C 37 35 2C 38 38 30 2C 31 35 30 2C 30 2C 30 2C 30 2C 30 2C 30 2C 30 2C 30 2C 30 2C 30 2C 30 2C 30 2C 30 2C 30 2C 30 2C 30 2C 30 2C 30 2C 30 2C 30 2C 30 2C 30 2C 30 2C 30 2C 30 2C 30 2C 30 0D 0A 2B 55 52 43 3A 20 22 53 4F 53 22 2C 31 36 2C 37 0D 0A 2B 55 52 43 3A 20 22 41 75 64 69 6F 22 2C 32 31 2C 31 2C 31 2C 31 30 34 37 2C 31 30 30 2C 36 35 35 33 35 2C 35 30 2C 38 38 30 2C 31 30 30 2C 36 35 35 33 35 2C 35 30 2C 36 39 38 2C 32 30 30 2C 30 2C 30 2C 30 2C 30 2C 30 2C 30 2C 30 2C 30 2C 30 2C 30 2C 30 2C 30 2C 30 2C 30 2C 30 2C 30 2C 30 2C 30 2C 30 2C 30 2C 30 2C 30 0D 0A 2B 55 52 43 3A 20 22 4D 73 67 51 75 65 75 65 22 2C 32 2C 39 2C 32 35 35 0D 0A 2B 55 52 43 3A 20 22 53 4F 53 22 2C 31 36 2C 33 0D 0A 2B 55 52 43 3A 20 22 47 65 6E 65 72 61 6C 22 2C 31 34 2C 31 0D 0A' | ' ' ]</msg>
-<msg time="2026-03-24T17:39:09.785354" level="TRACE">Return: '4F4B0D0A2B5552433A2022534F53222C31362C320D0A2B5552433A2022417564696F222C32312C312C312C313034372C3135302C36353533352C37352C3838302C3135302C302C302C302C302C302C302C302C302C302C302C302C302C302C302C302C302C302C302C302C302C302C302C302C302C302C300D0A2B5552433A2022534F53222C31362C370D0A2B5552433A2022417564696F222C32312C312C312C313034372C3130302C36353533352C35302C3838302C3130302C36353533352C35302C3639382C3230302C302C302C302C302C302C302C302C302C302C302C302C302C302C302C302C302C302C302C302C302C302C300D0A2B5552433A20224D73675175657565222C322C392C3235350D0A2B5552433A2022534F53222C31362C330D0A2B5552433A202247656E6572616C222C31342C310D0A'</msg>
-<msg time="2026-03-24T17:39:09.785553" level="INFO">${clean_hex} = 4F4B0D0A2B5552433A2022534F53222C31362C320D0A2B5552433A2022417564696F222C32312C312C312C313034372C3135302C36353533352C37352C3838302C3135302C302C302C302C302C302C302C302C302C302C302C302C302C302C302C302C30...</msg>
+<msg time="2026-03-25T10:17:14.554275" level="TRACE">Arguments: [ '4F 4B 0D 0A 2B 55 52 43 3A 20 22 53 4F 53 22 2C 31 36 2C 31 0D 0A 2B 55 52 43 3A 20 22 41 75 64 69 6F 22 2C 32 31 2C 31 2C 31 2C 31 30 34 37 2C 31 35 30 2C 36 35 35 33 35 2C 35 30 2C 31 30 34 37 2C 31 35 30 2C 36 35 35 33 35 2C 35 30 2C 31 30 34 37 2C 31 35 30 2C 36 35 35 33 35 2C 31 30 30 2C 31 35 36 38 2C 33 30 30 2C 30 2C 30 2C 30 2C 30 2C 30 2C 30 2C 30 2C 30 2C 30 2C 30 2C 30 2C 30 2C 30 2C 30 2C 30 2C 30 2C 30 2C 30 0D 0A 2B 55 52 43 3A 20 22 47 65 6E 65 72 61 6C 22 2C 31 34 2C 31 0D 0A' | ' ' ]</msg>
+<msg time="2026-03-25T10:17:14.554723" level="TRACE">Return: '4F4B0D0A2B5552433A2022534F53222C31362C310D0A2B5552433A2022417564696F222C32312C312C312C313034372C3135302C36353533352C35302C313034372C3135302C36353533352C35302C313034372C3135302C36353533352C3130302C313536382C3330302C302C302C302C302C302C302C302C302C302C302C302C302C302C302C302C302C302C300D0A2B5552433A202247656E6572616C222C31342C310D0A'</msg>
+<msg time="2026-03-25T10:17:14.555084" level="INFO">${clean_hex} = 4F4B0D0A2B5552433A2022534F53222C31362C310D0A2B5552433A2022417564696F222C32312C312C312C313034372C3135302C36353533352C35302C313034372C3135302C36353533352C35302C313034372C3135302C36353533352C3130302C3135...</msg>
 <var>${clean_hex}</var>
 <arg>${hex_response}</arg>
 <arg>${SPACE}</arg>
 <doc>Removes all ``removables`` from the given ``string``.</doc>
-<status status="PASS" start="2026-03-24T17:39:09.784275" elapsed="0.001331"/>
+<status status="PASS" start="2026-03-25T10:17:14.553870" elapsed="0.001247"/>
 </kw>
 <kw name="Evaluate" owner="BuiltIn">
-<msg time="2026-03-24T17:39:09.786451" level="TRACE">Arguments: [ "bytes.fromhex('4F4B0D0A2B5552433A2022534F53222C31362C320D0A2B5552433A2022417564696F222C32312C312C312C313034372C3135302C36353533352C37352C3838302C3135302C302C302C302C302C302C302C302C302C302C302C302C302C302C302C302C302C302C302C302C302C302C302C302C302C302C300D0A2B5552433A2022534F53222C31362C370D0A2B5552433A2022417564696F222C32312C312C312C313034372C3130302C36353533352C35302C3838302C3130302C36353533352C35302C3639382C3230302C302C302C302C302C302C302C302C302C302C302C302C302C302C302C302C302C302C302C302C302C302C300D0A2B5552433A20224D73675175657565222C322C392C3235350D0A2B5552433A2022534F53222C31362C330D0A2B5552433A202247656E6572616C222C31342C310D0A')" ]</msg>
-<msg time="2026-03-24T17:39:09.787830" level="TRACE">Return: b'OK\r\n+URC: "SOS",16,2\r\n+URC: "Audio",21,1,1,1047,150,65535,75,880,150,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0\r\n+URC: "SOS",16,7\r\n+URC: "Audio",21,1,1,1047,100,65535,50,880,100,65535,50,698,200,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0\r\n+URC: "MsgQueue",2,9,255\r\n+URC: "SOS",16,3\r\n+URC: "General",14,1\r\n'</msg>
-<msg time="2026-03-24T17:39:09.788093" level="INFO">${bytes} = OK
-+URC: "SOS",16,2
-+URC: "Audio",21,1,1,1047,150,65535,75,880,150,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-+URC: "SOS",16,7
-+URC: "Audio",21,1,1,1047,100,65535,50,880,100,65535,50,698,...</msg>
-<var>${bytes}</var>
-<arg>bytes.fromhex('${clean_hex}')</arg>
-<doc>Evaluates the given expression in Python and returns the result.</doc>
-<status status="PASS" start="2026-03-24T17:39:09.785863" elapsed="0.002306"/>
-</kw>
-<kw name="Evaluate" owner="BuiltIn">
-<msg time="2026-03-24T17:39:09.788991" level="TRACE">Arguments: [ "$bytes.decode('utf-8')" ]</msg>
-<msg time="2026-03-24T17:39:09.790182" level="TRACE">Return: 'OK\r\n+URC: "SOS",16,2\r\n+URC: "Audio",21,1,1,1047,150,65535,75,880,150,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0\r\n+URC: "SOS",16,7\r\n+URC: "Audio",21,1,1,1047,100,65535,50,880,100,65535,50,698,200,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0\r\n+URC: "MsgQueue",2,9,255\r\n+URC: "SOS",16,3\r\n+URC: "General",14,1\r\n'</msg>
-<msg time="2026-03-24T17:39:09.790426" level="INFO">${response} = OK
-+URC: "SOS",16,2
-+URC: "Audio",21,1,1,1047,150,65535,75,880,150,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-+URC: "SOS",16,7
-+URC: "Audio",21,1,1,1047,100,65535,50,880,100,65535,50,698,...</msg>
-<var>${response}</var>
-<arg>$bytes.decode('utf-8')</arg>
-<doc>Evaluates the given expression in Python and returns the result.</doc>
-<status status="PASS" start="2026-03-24T17:39:09.788477" elapsed="0.002055"/>
-</kw>
-<kw name="Log" owner="BuiltIn">
-<msg time="2026-03-24T17:39:09.791391" level="TRACE">Arguments: [ 'Decoded Response: OK\r\n+URC: "SOS",16,2\r\n+URC: "Audio",21,1,1,1047,150,65535,75,880,150,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0\r\n+URC: "SOS",16,7\r\n+URC: "Audio",21,1,1,1047,100,65535,50,880,100,65535,50,698,200,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0\r\n+URC: "MsgQueue",2,9,255\r\n+URC: "SOS",16,3\r\n+URC: "General",14,1\r\n' ]</msg>
-<msg time="2026-03-24T17:39:09.791565" level="INFO">Decoded Response: OK
-+URC: "SOS",16,2
-+URC: "Audio",21,1,1,1047,150,65535,75,880,150,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-+URC: "SOS",16,7
-+URC: "Audio",21,1,1,1047,100,65535,50,880,100,65535,50,698,200,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-+URC: "MsgQueue",2,9,255
-+URC: "SOS",16,3
+<msg time="2026-03-25T10:17:14.555579" level="TRACE">Arguments: [ "bytes.fromhex('4F4B0D0A2B5552433A2022534F53222C31362C310D0A2B5552433A2022417564696F222C32312C312C312C313034372C3135302C36353533352C35302C313034372C3135302C36353533352C35302C313034372C3135302C36353533352C3130302C313536382C3330302C302C302C302C302C302C302C302C302C302C302C302C302C302C302C302C302C302C300D0A2B5552433A202247656E6572616C222C31342C310D0A')" ]</msg>
+<msg time="2026-03-25T10:17:14.556316" level="TRACE">Return: b'OK\r\n+URC: "SOS",16,1\r\n+URC: "Audio",21,1,1,1047,150,65535,50,1047,150,65535,50,1047,150,65535,100,1568,300,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0\r\n+URC: "General",14,1\r\n'</msg>
+<msg time="2026-03-25T10:17:14.556436" level="INFO">${bytes} = OK
++URC: "SOS",16,1
++URC: "Audio",21,1,1,1047,150,65535,50,1047,150,65535,50,1047,150,65535,100,1568,300,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 +URC: "General",14,1
 </msg>
-<msg time="2026-03-24T17:39:09.791652" level="TRACE">Return: None</msg>
+<var>${bytes}</var>
+<arg>bytes.fromhex('${clean_hex}')</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2026-03-25T10:17:14.555278" elapsed="0.001191"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2026-03-25T10:17:14.556911" level="TRACE">Arguments: [ "$bytes.decode('utf-8')" ]</msg>
+<msg time="2026-03-25T10:17:14.557593" level="TRACE">Return: 'OK\r\n+URC: "SOS",16,1\r\n+URC: "Audio",21,1,1,1047,150,65535,50,1047,150,65535,50,1047,150,65535,100,1568,300,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0\r\n+URC: "General",14,1\r\n'</msg>
+<msg time="2026-03-25T10:17:14.557705" level="INFO">${response} = OK
++URC: "SOS",16,1
++URC: "Audio",21,1,1,1047,150,65535,50,1047,150,65535,50,1047,150,65535,100,1568,300,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
++URC: "General",14,1
+</msg>
+<var>${response}</var>
+<arg>$bytes.decode('utf-8')</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2026-03-25T10:17:14.556662" elapsed="0.001078"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2026-03-25T10:17:14.558224" level="TRACE">Arguments: [ 'Decoded Response: OK\r\n+URC: "SOS",16,1\r\n+URC: "Audio",21,1,1,1047,150,65535,50,1047,150,65535,50,1047,150,65535,100,1568,300,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0\r\n+URC: "General",14,1\r\n' ]</msg>
+<msg time="2026-03-25T10:17:14.558302" level="INFO">Decoded Response: OK
++URC: "SOS",16,1
++URC: "Audio",21,1,1,1047,150,65535,50,1047,150,65535,50,1047,150,65535,100,1568,300,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
++URC: "General",14,1
+</msg>
+<msg time="2026-03-25T10:17:14.558334" level="TRACE">Return: None</msg>
 <arg>Decoded Response: ${response}</arg>
 <doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2026-03-24T17:39:09.790807" elapsed="0.000923"/>
+<status status="PASS" start="2026-03-25T10:17:14.557917" elapsed="0.000445"/>
 </kw>
 <return>
 <value>${response}</value>
-<status status="PASS" start="2026-03-24T17:39:09.791853" elapsed="0.000105"/>
+<status status="PASS" start="2026-03-25T10:17:14.558436" elapsed="0.000063"/>
 </return>
-<msg time="2026-03-24T17:39:09.792225" level="TRACE">Return: 'OK\r\n+URC: "SOS",16,2\r\n+URC: "Audio",21,1,1,1047,150,65535,75,880,150,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0\r\n+URC: "SOS",16,7\r\n+URC: "Audio",21,1,1,1047,100,65535,50,880,100,65535,50,698,200,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0\r\n+URC: "MsgQueue",2,9,255\r\n+URC: "SOS",16,3\r\n+URC: "General",14,1\r\n'</msg>
-<msg time="2026-03-24T17:39:09.792393" level="INFO">${response} = OK
-+URC: "SOS",16,2
-+URC: "Audio",21,1,1,1047,150,65535,75,880,150,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-+URC: "SOS",16,7
-+URC: "Audio",21,1,1,1047,100,65535,50,880,100,65535,50,698,...</msg>
+<msg time="2026-03-25T10:17:14.558625" level="TRACE">Return: 'OK\r\n+URC: "SOS",16,1\r\n+URC: "Audio",21,1,1,1047,150,65535,50,1047,150,65535,50,1047,150,65535,100,1568,300,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0\r\n+URC: "General",14,1\r\n'</msg>
+<msg time="2026-03-25T10:17:14.558702" level="INFO">${response} = OK
++URC: "SOS",16,1
++URC: "Audio",21,1,1,1047,150,65535,50,1047,150,65535,50,1047,150,65535,100,1568,300,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
++URC: "General",14,1
+</msg>
 <var>${response}</var>
-<arg>AT+SOS=2</arg>
-<status status="PASS" start="2026-03-24T17:39:09.710813" elapsed="0.081641"/>
+<arg>AT+SOS=1</arg>
+<status status="PASS" start="2026-03-25T10:17:14.492444" elapsed="0.066281"/>
 </kw>
 <kw name="Should Contain" owner="BuiltIn">
-<msg time="2026-03-24T17:39:09.794405" level="TRACE">Arguments: [ 'OK\r\n+URC: "SOS",16,2\r\n+URC: "Audio",21,1,1,1047,150,65535,75,880,150,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0\r\n+URC: "SOS",16,7\r\n+URC: "Audio",21,1,1,1047,100,65535,50,880,100,65535,50,698,200,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0\r\n+URC: "MsgQueue",2,9,255\r\n+URC: "SOS",16,3\r\n+URC: "General",14,1\r\n' | 'OK' ]</msg>
-<msg time="2026-03-24T17:39:09.794649" level="TRACE">Return: None</msg>
+<msg time="2026-03-25T10:17:14.559536" level="TRACE">Arguments: [ 'OK\r\n+URC: "SOS",16,1\r\n+URC: "Audio",21,1,1,1047,150,65535,50,1047,150,65535,50,1047,150,65535,100,1568,300,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0\r\n+URC: "General",14,1\r\n' | 'OK' ]</msg>
+<msg time="2026-03-25T10:17:14.559658" level="TRACE">Return: None</msg>
 <arg>${response}</arg>
 <arg>OK</arg>
 <doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
-<status status="PASS" start="2026-03-24T17:39:09.793453" elapsed="0.001277"/>
+<status status="PASS" start="2026-03-25T10:17:14.559037" elapsed="0.000667"/>
 </kw>
 <kw name="Log To Console" owner="BuiltIn">
-<msg time="2026-03-24T17:39:09.796021" level="TRACE">Arguments: [ 'Received: OK\r\n+URC: "SOS",16,2\r\n+URC: "Audio",21,1,1,1047,150,65535,75,880,150,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0\r\n+URC: "SOS",16,7\r\n+URC: "Audio",21,1,1,1047,100,65535,50,880,100,65535,50,698,200,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0\r\n+URC: "MsgQueue",2,9,255\r\n+URC: "SOS",16,3\r\n+URC: "General",14,1\r\n' ]</msg>
-<msg time="2026-03-24T17:39:09.796900" level="TRACE">Return: None</msg>
+<msg time="2026-03-25T10:17:14.560243" level="TRACE">Arguments: [ 'Received: OK\r\n+URC: "SOS",16,1\r\n+URC: "Audio",21,1,1,1047,150,65535,50,1047,150,65535,50,1047,150,65535,100,1568,300,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0\r\n+URC: "General",14,1\r\n' ]</msg>
+<msg time="2026-03-25T10:17:14.560410" level="TRACE">Return: None</msg>
 <arg>Received: ${response}</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" start="2026-03-24T17:39:09.795445" elapsed="0.001576"/>
+<status status="PASS" start="2026-03-25T10:17:14.560051" elapsed="0.000401"/>
 </kw>
 <doc>Checks if the device responds to a basic AT ping.</doc>
-<status status="PASS" start="2026-03-24T17:39:09.660312" elapsed="0.137185"/>
+<status status="PASS" start="2026-03-25T10:17:14.450332" elapsed="0.110316"/>
 </test>
-<test id="s1-t2" name="Read SOS command" line="16">
+<test id="s1-t2" name="Read SOS command" line="14">
 <kw name="Connect To Nordic Device" owner="nordic_ble_keywords" type="SETUP">
-<msg time="2026-03-24T17:39:09.803855" level="TRACE">Arguments: [  ]</msg>
+<msg time="2026-03-25T10:17:14.561904" level="TRACE">Arguments: [  ]</msg>
 <kw name="Delete All Ports" owner="SerialLibrary">
-<msg time="2026-03-24T17:39:09.804372" level="TRACE">Arguments: [  ]</msg>
-<msg time="2026-03-24T17:39:09.806125" level="TRACE">Return: None</msg>
+<msg time="2026-03-25T10:17:14.561995" level="TRACE">Arguments: [  ]</msg>
+<msg time="2026-03-25T10:17:14.563589" level="TRACE">Return: None</msg>
 <doc>Deletes all ports maintained in the library instance.</doc>
-<status status="PASS" start="2026-03-24T17:39:09.804223" elapsed="0.002032"/>
+<status status="PASS" start="2026-03-25T10:17:14.561972" elapsed="0.001664"/>
 </kw>
 <kw name="Add Port" owner="SerialLibrary">
-<msg time="2026-03-24T17:39:09.806846" level="TRACE">Arguments: [ 'COM10' | baudrate='115200' | timeout='2' ]</msg>
-<msg time="2026-03-24T17:39:09.816085" level="TRACE">Return: Serial&lt;id=0x229a8c13370, open=True&gt;(port='COM10', baudrate=115200, bytesize=8, parity='N', stopbits=1, timeout=2.0, xonxoff=False, rtscts=False, dsrdtr=False)</msg>
+<msg time="2026-03-25T10:17:14.563794" level="TRACE">Arguments: [ 'COM10' | baudrate='115200' | timeout='2' ]</msg>
+<msg time="2026-03-25T10:17:14.567409" level="TRACE">Return: Serial&lt;id=0x19bea28b4c0, open=True&gt;(port='COM10', baudrate=115200, bytesize=8, parity='N', stopbits=1, timeout=2.0, xonxoff=False, rtscts=False, dsrdtr=False)</msg>
 <arg>${PORT}</arg>
 <arg>baudrate=${BAUD}</arg>
 <arg>timeout=2</arg>
 <doc>Adds new port with specified locator.</doc>
-<status status="PASS" start="2026-03-24T17:39:09.806483" elapsed="0.009815"/>
+<status status="PASS" start="2026-03-25T10:17:14.563701" elapsed="0.003769"/>
 </kw>
 <kw name="Open Port" owner="SerialLibrary">
-<msg time="2026-03-24T17:39:09.817170" level="TRACE">Arguments: [ 'COM10' ]</msg>
-<msg time="2026-03-24T17:39:09.817321" level="TRACE">Return: None</msg>
+<msg time="2026-03-25T10:17:14.567613" level="TRACE">Arguments: [ 'COM10' ]</msg>
+<msg time="2026-03-25T10:17:14.567656" level="TRACE">Return: None</msg>
 <arg>${PORT}</arg>
 <doc>Opens specified port.</doc>
-<status status="PASS" start="2026-03-24T17:39:09.816925" elapsed="0.000443"/>
+<status status="PASS" start="2026-03-25T10:17:14.567539" elapsed="0.000135"/>
 </kw>
 <kw name="Reset Input Buffer" owner="SerialLibrary">
-<msg time="2026-03-24T17:39:09.817869" level="TRACE">Arguments: [ 'COM10' ]</msg>
-<msg time="2026-03-24T17:39:09.818010" level="TRACE">Return: None</msg>
+<msg time="2026-03-25T10:17:14.567777" level="TRACE">Arguments: [ 'COM10' ]</msg>
+<msg time="2026-03-25T10:17:14.567826" level="TRACE">Return: None</msg>
 <arg>${PORT}</arg>
 <doc>Clears input buffer.</doc>
-<status status="PASS" start="2026-03-24T17:39:09.817667" elapsed="0.000380"/>
+<status status="PASS" start="2026-03-25T10:17:14.567723" elapsed="0.000120"/>
 </kw>
 <kw name="Send AT Command" owner="nordic_ble_keywords">
-<msg time="2026-03-24T17:39:09.818495" level="TRACE">Arguments: [ ${command}="AT+MFGSECAUTH=1,asu'zfzU{Mj#O[4V" ]</msg>
+<msg time="2026-03-25T10:17:14.568024" level="TRACE">Arguments: [ ${command}="AT+MFGSECAUTH=1,asu'zfzU{Mj#O[4V" ]</msg>
 <kw name="Write Data" owner="SerialLibrary">
-<msg time="2026-03-24T17:39:09.818803" level="TRACE">Arguments: [ "AT+MFGSECAUTH=1,asu'zfzU{Mj#O[4V\r\n" | encoding='utf-8' ]</msg>
-<msg time="2026-03-24T17:39:09.819330" level="TRACE">Return: None</msg>
+<msg time="2026-03-25T10:17:14.568182" level="TRACE">Arguments: [ "AT+MFGSECAUTH=1,asu'zfzU{Mj#O[4V\r\n" | encoding='utf-8' ]</msg>
+<msg time="2026-03-25T10:17:14.568498" level="TRACE">Return: None</msg>
 <arg>${command}${TERMINATOR}</arg>
 <arg>encoding=utf-8</arg>
 <doc>Writes data into the port.</doc>
-<status status="PASS" start="2026-03-24T17:39:09.818645" elapsed="0.000758"/>
+<status status="PASS" start="2026-03-25T10:17:14.568086" elapsed="0.000438"/>
 </kw>
 <kw name="Read Until" owner="SerialLibrary">
-<msg time="2026-03-24T17:39:09.819640" level="TRACE">Arguments: [ '\r\n' ]</msg>
-<msg time="2026-03-24T17:39:09.846546" level="TRACE">Return: '4F 4B 0D 0A'</msg>
-<msg time="2026-03-24T17:39:09.846996" level="INFO">${hex_response} = 4F 4B 0D 0A</msg>
+<msg time="2026-03-25T10:17:14.568795" level="TRACE">Arguments: [ '\r\n' ]</msg>
+<msg time="2026-03-25T10:17:14.600392" level="TRACE">Return: '4F 4B 0D 0A'</msg>
+<msg time="2026-03-25T10:17:14.600843" level="INFO">${hex_response} = 4F 4B 0D 0A</msg>
 <var>${hex_response}</var>
 <arg>${TERMINATOR}</arg>
 <doc>Read until a termination sequence is found, size exceeded or timeout.</doc>
-<status status="PASS" start="2026-03-24T17:39:09.819542" elapsed="0.027518"/>
+<status status="PASS" start="2026-03-25T10:17:14.568593" elapsed="0.032422"/>
 </kw>
 <kw name="Remove String" owner="String">
-<msg time="2026-03-24T17:39:09.847729" level="TRACE">Arguments: [ '4F 4B 0D 0A' | ' ' ]</msg>
-<msg time="2026-03-24T17:39:09.847918" level="TRACE">Return: '4F4B0D0A'</msg>
-<msg time="2026-03-24T17:39:09.848035" level="INFO">${clean_hex} = 4F4B0D0A</msg>
+<msg time="2026-03-25T10:17:14.601588" level="TRACE">Arguments: [ '4F 4B 0D 0A' | ' ' ]</msg>
+<msg time="2026-03-25T10:17:14.601725" level="TRACE">Return: '4F4B0D0A'</msg>
+<msg time="2026-03-25T10:17:14.601792" level="INFO">${clean_hex} = 4F4B0D0A</msg>
 <var>${clean_hex}</var>
 <arg>${hex_response}</arg>
 <arg>${SPACE}</arg>
 <doc>Removes all ``removables`` from the given ``string``.</doc>
-<status status="PASS" start="2026-03-24T17:39:09.847361" elapsed="0.000715"/>
+<status status="PASS" start="2026-03-25T10:17:14.601275" elapsed="0.000539"/>
 </kw>
 <kw name="Evaluate" owner="BuiltIn">
-<msg time="2026-03-24T17:39:09.848790" level="TRACE">Arguments: [ "bytes.fromhex('4F4B0D0A')" ]</msg>
-<msg time="2026-03-24T17:39:09.850421" level="TRACE">Return: b'OK\r\n'</msg>
-<msg time="2026-03-24T17:39:09.850630" level="INFO">${bytes} = OK
+<msg time="2026-03-25T10:17:14.602185" level="TRACE">Arguments: [ "bytes.fromhex('4F4B0D0A')" ]</msg>
+<msg time="2026-03-25T10:17:14.602746" level="TRACE">Return: b'OK\r\n'</msg>
+<msg time="2026-03-25T10:17:14.602853" level="INFO">${bytes} = OK
 </msg>
 <var>${bytes}</var>
 <arg>bytes.fromhex('${clean_hex}')</arg>
 <doc>Evaluates the given expression in Python and returns the result.</doc>
-<status status="PASS" start="2026-03-24T17:39:09.848279" elapsed="0.002399"/>
+<status status="PASS" start="2026-03-25T10:17:14.601924" elapsed="0.000957"/>
 </kw>
 <kw name="Evaluate" owner="BuiltIn">
-<msg time="2026-03-24T17:39:09.851508" level="TRACE">Arguments: [ "$bytes.decode('utf-8')" ]</msg>
-<msg time="2026-03-24T17:39:09.852640" level="TRACE">Return: 'OK\r\n'</msg>
-<msg time="2026-03-24T17:39:09.852819" level="INFO">${response} = OK
+<msg time="2026-03-25T10:17:14.603194" level="TRACE">Arguments: [ "$bytes.decode('utf-8')" ]</msg>
+<msg time="2026-03-25T10:17:14.603542" level="TRACE">Return: 'OK\r\n'</msg>
+<msg time="2026-03-25T10:17:14.603594" level="INFO">${response} = OK
 </msg>
 <var>${response}</var>
 <arg>$bytes.decode('utf-8')</arg>
 <doc>Evaluates the given expression in Python and returns the result.</doc>
-<status status="PASS" start="2026-03-24T17:39:09.850893" elapsed="0.001975"/>
+<status status="PASS" start="2026-03-25T10:17:14.603019" elapsed="0.000589"/>
 </kw>
 <kw name="Log" owner="BuiltIn">
-<msg time="2026-03-24T17:39:09.853495" level="TRACE">Arguments: [ 'Decoded Response: OK\r\n' ]</msg>
-<msg time="2026-03-24T17:39:09.853625" level="INFO">Decoded Response: OK
+<msg time="2026-03-25T10:17:14.603791" level="TRACE">Arguments: [ 'Decoded Response: OK\r\n' ]</msg>
+<msg time="2026-03-25T10:17:14.603845" level="INFO">Decoded Response: OK
 </msg>
-<msg time="2026-03-24T17:39:09.853680" level="TRACE">Return: None</msg>
+<msg time="2026-03-25T10:17:14.603862" level="TRACE">Return: None</msg>
 <arg>Decoded Response: ${response}</arg>
 <doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2026-03-24T17:39:09.853076" elapsed="0.000656"/>
+<status status="PASS" start="2026-03-25T10:17:14.603674" elapsed="0.000204"/>
 </kw>
 <return>
 <value>${response}</value>
-<status status="PASS" start="2026-03-24T17:39:09.853811" elapsed="0.000066"/>
+<status status="PASS" start="2026-03-25T10:17:14.603911" elapsed="0.000034"/>
 </return>
-<msg time="2026-03-24T17:39:09.854040" level="TRACE">Return: 'OK\r\n'</msg>
+<msg time="2026-03-25T10:17:14.604005" level="TRACE">Return: 'OK\r\n'</msg>
 <arg>AT+MFGSECAUTH=1,asu'zfzU{Mj\#O[4V</arg>
-<status status="PASS" start="2026-03-24T17:39:09.818281" elapsed="0.035813"/>
+<status status="PASS" start="2026-03-25T10:17:14.567933" elapsed="0.036091"/>
 </kw>
-<msg time="2026-03-24T17:39:09.854160" level="TRACE">Return: None</msg>
-<status status="PASS" start="2026-03-24T17:39:09.803428" elapsed="0.050780"/>
+<msg time="2026-03-25T10:17:14.604049" level="TRACE">Return: None</msg>
+<status status="PASS" start="2026-03-25T10:17:14.561804" elapsed="0.042263"/>
 </kw>
 <kw name="Send AT Command" owner="nordic_ble_keywords">
-<msg time="2026-03-24T17:39:09.855525" level="TRACE">Arguments: [ ${command}='AT+SOS?' ]</msg>
+<msg time="2026-03-25T10:17:14.604805" level="TRACE">Arguments: [ ${command}='AT+SOS?' ]</msg>
 <kw name="Write Data" owner="SerialLibrary">
-<msg time="2026-03-24T17:39:09.856080" level="TRACE">Arguments: [ 'AT+SOS?\r\n' | encoding='utf-8' ]</msg>
-<msg time="2026-03-24T17:39:09.856608" level="TRACE">Return: None</msg>
+<msg time="2026-03-25T10:17:14.605040" level="TRACE">Arguments: [ 'AT+SOS?\r\n' | encoding='utf-8' ]</msg>
+<msg time="2026-03-25T10:17:14.605318" level="TRACE">Return: None</msg>
 <arg>${command}${TERMINATOR}</arg>
 <arg>encoding=utf-8</arg>
 <doc>Writes data into the port.</doc>
-<status status="PASS" start="2026-03-24T17:39:09.855814" elapsed="0.000934"/>
+<status status="PASS" start="2026-03-25T10:17:14.604917" elapsed="0.000422"/>
 </kw>
 <kw name="Read Until" owner="SerialLibrary">
-<msg time="2026-03-24T17:39:09.863226" level="TRACE">Arguments: [ '\r\n' ]</msg>
-<msg time="2026-03-24T17:39:09.884696" level="TRACE">Return: '2B 53 4F 53 3A 20 30 0D 0A 4F 4B 0D 0A'</msg>
-<msg time="2026-03-24T17:39:09.885054" level="INFO">${hex_response} = 2B 53 4F 53 3A 20 30 0D 0A 4F 4B 0D 0A</msg>
+<msg time="2026-03-25T10:17:14.605465" level="TRACE">Arguments: [ '\r\n' ]</msg>
+<msg time="2026-03-25T10:17:14.632209" level="TRACE">Return: '2B 53 4F 53 3A 20 31 0D 0A 4F 4B 0D 0A'</msg>
+<msg time="2026-03-25T10:17:14.632581" level="INFO">${hex_response} = 2B 53 4F 53 3A 20 31 0D 0A 4F 4B 0D 0A</msg>
 <var>${hex_response}</var>
 <arg>${TERMINATOR}</arg>
 <doc>Read until a termination sequence is found, size exceeded or timeout.</doc>
-<status status="PASS" start="2026-03-24T17:39:09.856998" elapsed="0.028121"/>
+<status status="PASS" start="2026-03-25T10:17:14.605405" elapsed="0.027271"/>
 </kw>
 <kw name="Remove String" owner="String">
-<msg time="2026-03-24T17:39:09.885971" level="TRACE">Arguments: [ '2B 53 4F 53 3A 20 30 0D 0A 4F 4B 0D 0A' | ' ' ]</msg>
-<msg time="2026-03-24T17:39:09.886286" level="TRACE">Return: '2B534F533A20300D0A4F4B0D0A'</msg>
-<msg time="2026-03-24T17:39:09.886429" level="INFO">${clean_hex} = 2B534F533A20300D0A4F4B0D0A</msg>
+<msg time="2026-03-25T10:17:14.633286" level="TRACE">Arguments: [ '2B 53 4F 53 3A 20 31 0D 0A 4F 4B 0D 0A' | ' ' ]</msg>
+<msg time="2026-03-25T10:17:14.633370" level="TRACE">Return: '2B534F533A20310D0A4F4B0D0A'</msg>
+<msg time="2026-03-25T10:17:14.633413" level="INFO">${clean_hex} = 2B534F533A20310D0A4F4B0D0A</msg>
 <var>${clean_hex}</var>
 <arg>${hex_response}</arg>
 <arg>${SPACE}</arg>
 <doc>Removes all ``removables`` from the given ``string``.</doc>
-<status status="PASS" start="2026-03-24T17:39:09.885427" elapsed="0.001047"/>
+<status status="PASS" start="2026-03-25T10:17:14.633088" elapsed="0.000338"/>
 </kw>
 <kw name="Evaluate" owner="BuiltIn">
-<msg time="2026-03-24T17:39:09.887232" level="TRACE">Arguments: [ "bytes.fromhex('2B534F533A20300D0A4F4B0D0A')" ]</msg>
-<msg time="2026-03-24T17:39:09.888297" level="TRACE">Return: b'+SOS: 0\r\nOK\r\n'</msg>
-<msg time="2026-03-24T17:39:09.888530" level="INFO">${bytes} = +SOS: 0
+<msg time="2026-03-25T10:17:14.636467" level="TRACE">Arguments: [ "bytes.fromhex('2B534F533A20310D0A4F4B0D0A')" ]</msg>
+<msg time="2026-03-25T10:17:14.637131" level="TRACE">Return: b'+SOS: 1\r\nOK\r\n'</msg>
+<msg time="2026-03-25T10:17:14.637198" level="INFO">${bytes} = +SOS: 1
 OK
 </msg>
 <var>${bytes}</var>
 <arg>bytes.fromhex('${clean_hex}')</arg>
 <doc>Evaluates the given expression in Python and returns the result.</doc>
-<status status="PASS" start="2026-03-24T17:39:09.886695" elapsed="0.001887"/>
+<status status="PASS" start="2026-03-25T10:17:14.633509" elapsed="0.003707"/>
 </kw>
 <kw name="Evaluate" owner="BuiltIn">
-<msg time="2026-03-24T17:39:09.889191" level="TRACE">Arguments: [ "$bytes.decode('utf-8')" ]</msg>
-<msg time="2026-03-24T17:39:09.890505" level="TRACE">Return: '+SOS: 0\r\nOK\r\n'</msg>
-<msg time="2026-03-24T17:39:09.890716" level="INFO">${response} = +SOS: 0
+<msg time="2026-03-25T10:17:14.637434" level="TRACE">Arguments: [ "$bytes.decode('utf-8')" ]</msg>
+<msg time="2026-03-25T10:17:14.637706" level="TRACE">Return: '+SOS: 1\r\nOK\r\n'</msg>
+<msg time="2026-03-25T10:17:14.637756" level="INFO">${response} = +SOS: 1
 OK
 </msg>
 <var>${response}</var>
 <arg>$bytes.decode('utf-8')</arg>
 <doc>Evaluates the given expression in Python and returns the result.</doc>
-<status status="PASS" start="2026-03-24T17:39:09.888828" elapsed="0.001932"/>
+<status status="PASS" start="2026-03-25T10:17:14.637321" elapsed="0.000448"/>
 </kw>
 <kw name="Log" owner="BuiltIn">
-<msg time="2026-03-24T17:39:09.891330" level="TRACE">Arguments: [ 'Decoded Response: +SOS: 0\r\nOK\r\n' ]</msg>
-<msg time="2026-03-24T17:39:09.891436" level="INFO">Decoded Response: +SOS: 0
+<msg time="2026-03-25T10:17:14.637959" level="TRACE">Arguments: [ 'Decoded Response: +SOS: 1\r\nOK\r\n' ]</msg>
+<msg time="2026-03-25T10:17:14.637995" level="INFO">Decoded Response: +SOS: 1
 OK
 </msg>
-<msg time="2026-03-24T17:39:09.891489" level="TRACE">Return: None</msg>
+<msg time="2026-03-25T10:17:14.638013" level="TRACE">Return: None</msg>
 <arg>Decoded Response: ${response}</arg>
 <doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2026-03-24T17:39:09.890962" elapsed="0.000610"/>
+<status status="PASS" start="2026-03-25T10:17:14.637832" elapsed="0.000198"/>
 </kw>
 <return>
 <value>${response}</value>
-<status status="PASS" start="2026-03-24T17:39:09.891658" elapsed="0.000209"/>
+<status status="PASS" start="2026-03-25T10:17:14.638060" elapsed="0.000029"/>
 </return>
-<msg time="2026-03-24T17:39:09.892032" level="TRACE">Return: '+SOS: 0\r\nOK\r\n'</msg>
-<msg time="2026-03-24T17:39:09.892134" level="INFO">${response} = +SOS: 0
+<msg time="2026-03-25T10:17:14.638142" level="TRACE">Return: '+SOS: 1\r\nOK\r\n'</msg>
+<msg time="2026-03-25T10:17:14.638173" level="INFO">${response} = +SOS: 1
 OK
 </msg>
 <var>${response}</var>
 <arg>AT+SOS?</arg>
-<status status="PASS" start="2026-03-24T17:39:09.855170" elapsed="0.037000"/>
+<status status="PASS" start="2026-03-25T10:17:14.604660" elapsed="0.033532"/>
 </kw>
 <kw name="Should Contain" owner="BuiltIn">
-<msg time="2026-03-24T17:39:09.893368" level="TRACE">Arguments: [ '+SOS: 0\r\nOK\r\n' | '0' ]</msg>
-<msg time="2026-03-24T17:39:09.893535" level="TRACE">Return: None</msg>
+<msg time="2026-03-25T10:17:14.639065" level="TRACE">Arguments: [ '+SOS: 1\r\nOK\r\n' | '1' ]</msg>
+<msg time="2026-03-25T10:17:14.639117" level="TRACE">Return: None</msg>
 <arg>${response}</arg>
-<arg>0</arg>
+<arg>1</arg>
 <doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
-<status status="PASS" start="2026-03-24T17:39:09.892818" elapsed="0.000774"/>
+<status status="PASS" start="2026-03-25T10:17:14.638886" elapsed="0.000251"/>
 </kw>
 <doc>Checks if the device responds to a basic AT ping.</doc>
-<status status="PASS" start="2026-03-24T17:39:09.801565" elapsed="0.092738"/>
+<status status="PASS" start="2026-03-25T10:17:14.561248" elapsed="0.078479"/>
 </test>
-<status status="PASS" start="2026-03-24T17:39:09.471568" elapsed="0.424687"/>
+<status status="PASS" start="2026-03-25T10:17:14.359358" elapsed="0.281724"/>
 </suite>
 <statistics>
 <total>
@@ -399,7 +395,7 @@ OK
 <tag>
 </tag>
 <suite>
-<stat name="Ble Test" id="s1" pass="2" fail="0" skip="0">Ble Test</stat>
+<stat name="AT SOS" id="s1" pass="2" fail="0" skip="0">AT SOS</stat>
 </suite>
 </statistics>
 <errors>

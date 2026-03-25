@@ -7,12 +7,12 @@ Test Setup       Connect To Nordic Device
 *** Test Cases ***
 Write SOS command
     [Documentation]    Checks if the device responds to a basic AT ping.
-    ${response} =    Send AT Command    AT+SOS=2
+    ${response} =    Send AT Command    AT+SOS=1
     should contain    ${response}    OK
     Log To Console   Received: ${response}
 
 Read SOS command
     [Documentation]    Checks if the device responds to a basic AT ping.
     ${response} =    Send AT Command    AT+SOS?
-    should contain    ${response}    0
+    should contain    ${response}    1
 
