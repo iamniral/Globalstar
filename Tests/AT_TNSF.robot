@@ -7,12 +7,12 @@ Test Setup       Connect To Nordic Device
 *** Test Cases ***
 Write Transceiver Notify Settings Flags
     [Documentation]    Checks if the device responds to a basic AT ping.
-    ${response} =    Send AT Command    AT+TXRXNSF=1114118
-    should contain    ${response}    OK
+    ${response} =    Send AT Command    AT+TNSF=1
+    should contain    ${response}    K
     Log To Console   Received: ${response}
 
 Read Transceiver Notify Settings Flags
     [Documentation]    Checks if the device responds to a basic AT ping.
-    ${response} =    Send AT Command    AT+TXRXNSF?
-    should contain    ${response}    1114118
+    ${response} =    Send AT Command    AT+TNSF?
+    should contain    ${response}    1
 
