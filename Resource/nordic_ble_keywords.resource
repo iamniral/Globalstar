@@ -1,5 +1,6 @@
 *** Settings ***
 Library    SerialLibrary
+Library    String
 
 *** Variables ***
 ${PORT}          COM10          # Or /dev/ttyUSB0 on Linux
@@ -13,13 +14,33 @@ Connect To Nordic Device
     Add Port    ${PORT}    baudrate=${BAUD}    timeout=2
     Open Port   ${PORT}
     Reset Input Buffer    ${PORT}
+    Send AT Command    AT+MFGSECAUTH=1,asu'zfzU{Mj\#O[4V
+
+#Authorize Device
+#    [Documentation]    Sends the MFG Security Auth code to enable write commands.
+#    ${auth_cmd} =    Set Variable    AT+MFGSECAUTH=1,asu'zfzU{Mj#O[4V
+#    Log To Console    \nSending Auth Code...
+#    ${status} =       Send AT Command    ${auth_cmd}
+
+#    # If successful, the device should return "OK"
+#    IF    '${status}' != 'OK'
+#        Fatal Error    Device Authorization Failed! State: ${status}
+#    END
+#    Log To Console    Authorization Successful. Device is now in Write Mode.
 
 Send AT Command
     [Arguments]    ${command}
-    Write Data     ${command}${TERMINATOR}      encoding=utf-8
-    ${response} =  Read Until    ${TERMINATOR}
-    RETURN         ${response}
+    # 1. Send the command
+    Write Data     ${command}${TERMINATOR}    encoding=utf-8
 
-Check BLE Device Status
-    ${output} =    Send AT Command    AT+ABC?   # Replace with your actual status command
-    Should Contain    ${output}    OK
+    # 2. Read the response (currently coming in as Hex)
+    ${hex_response} =  Read Until    ${TERMINATOR}
+
+    # 3. Convert Hex to String (Removes spaces and decodes)
+    ${clean_hex} =     Remove String    ${hex_response}    ${SPACE}
+    ${bytes} =         Evaluate    bytes.fromhex('${clean_hex}')
+    ${response} =      Evaluate    $bytes.decode('utf-8')
+
+    Log    Decoded Response: ${response}
+    RETURN    ${response}
+
